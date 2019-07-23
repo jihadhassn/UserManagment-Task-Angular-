@@ -1,0 +1,29 @@
+.text-center {
+    text-align: center;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.pagination-block {
+    margin: 0 auto;
+    text-align: right;
+    margin-top: 3rem;
+}
+
+thead th {
+    cursor: pointer;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: #005cbf;
+    span {
+        visibility: hidden;
+    }
+    &.active {
+        // color: #000;
+        span {
+            visibility: visible;
+        }
+    }
+}

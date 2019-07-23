@@ -1,0 +1,14 @@
+.add-form {
+    margin-top: 6rem !important;
+    &__radios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__radio {
+        display: flex;
+        align-items: center;
+        min-width: 29%;
+        font-size: 1.4rem;
+    }
+}

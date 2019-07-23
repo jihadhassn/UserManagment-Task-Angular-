@@ -1,0 +1,17 @@
+.listing {
+    margin-top: 4rem;
+    &__block {
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 5rem;
+    }
+    &__table-th {
+        padding: 1.3rem 0!important;
+        font-family: lora;
+        font-size: 1.5rem;
+    }
+}
+
+.table td {
+    padding: 1.5rem;
+}

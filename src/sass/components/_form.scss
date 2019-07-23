@@ -1,0 +1,39 @@
+.Form {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    border: 1px solid rgba(0, 0, 0, 0.198);
+    border-top: 4px solid #0088CC;
+    border-radius: 1rem;
+    padding: 2rem;
+    &__header {
+        color: #0088CC;
+        font-size: 1.68rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        font-family: lato;
+    }
+    &__form-control {
+        line-height: 1.85;
+        border: 1px solid rgba(0, 0, 0, 0.198);
+        border-radius: 4px;
+        padding: .6rem 1.2rem;
+        width: 100%;
+        font-size: 1.4rem;
+    }
+    &__lable {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: .8rem;
+        font-family: lora;
+    }
+    &__check-group {
+        display: flex;
+        align-items: center;
+        min-width: 50%;
+        font-size: 1.4rem;
+        label {
+            padding: 0.5rem 0.4rem;
+        }
+    }
+}

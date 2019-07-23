@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="Form">
+            <h4 class="Form__header">
+                I'M A RETURNING USER
+            </h4>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="Form__lable">{{ 'APP.Email address' | translate }}</label>
+                    <input type="email" class="form-control Form__form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{ 'APP.Enter email' | translate }}" data-validate="Valid email is required: ex@abc.xyz" formControlName="email">
+                </div>
+                <div *ngIf="loginForm.get('email').invalid && (loginForm.get('email').pristine || loginForm.get('email').touched)" class="alert alert-danger">
+                    <div *ngIf="loginForm.get('email').errors['required']">
+                        {{ 'APP.Email is required.' | translate }}
+                    </div>
+                    <div *ngIf="loginForm.get('email').errors['email']">
+                        {{ 'APP.Email Invalid.' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="Form__lable">{{ 'APP.Password' | translate }}</label>
+                    <input type="password" class="form-control Form__form-control" id="exampleInputPassword1" placeholder="{{ 'APP.Enter password' | translate }}" data-validate="Password is required" formControlName="password">
+                </div>
+                <div *ngIf="loginForm.get('password').invalid && (loginForm.get('password').pristine || loginForm.get('password').touched)" class="alert alert-danger">
+                    <div *ngIf="loginForm.get('password').errors['required']">
+                        {{ 'APP.Password is required.' | translate }}
+                    </div>
+
+                </div>
+                <div class="form-group form-check Form__check-group">
+                    <input type="checkbox" class="" id="exampleCheck1">
+                    <label class="form-check-label " for="exampleCheck1"> {{ 'APP.Remember Me' | translate }}</label>
+                </div>
+                <button type="submit" class="btn button button--primary">{{ 'APP.Login' | translate }}</button>
+            </form>
+        </div>
+    </div>
+</div>

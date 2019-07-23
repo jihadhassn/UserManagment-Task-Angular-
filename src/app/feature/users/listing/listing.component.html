@@ -1,0 +1,74 @@
+<!-- Filtration -->
+<div class="container">
+    <div class="row" style="margin-top: 2rem;">
+        <div class="col-sm-6">
+            <!-- search -->
+            <div class="search-box">
+                <input class="search-box__input" placeholder="{{ 'APP.Filtered By' | translate }}" type="text" name="txt_search" [(ngModel)]="searchText">
+                <button type="submit" class="button__search"> <i class="fas fa-search"></i> </button>
+            </div>
+        </div>
+        <!-- Add Button -->
+        <div class="col-sm-6">
+            <div class="sorting-group">
+                <a class="button__action" [routerLink]="['/users/add']">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- listing and sorting-->
+<div class="container listing">
+    <div class="row">
+        <div class="col-sm-9 listing__block">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" [class.active]="sortingValue === 'name'" (click)="onOrder('name')" class="listing__table-th mdl-data-table__cell--non-numeric">{{ 'APP.Name' | translate }}
+                            <span [hidden]="reverse"><i class="fas fa-arrow-down"></i></span>
+                        </th>
+                        <th scope="col" [class.active]="sortingValue === 'email'" (click)="onOrder('email')" class="listing__table-th mdl-data-table__cell--non-numeric">{{ 'APP.Email' | translate }}
+                            <span [hidden]="reverse"><i class="fas fa-arrow-down"></i></span>
+                        </th>
+                        <th scope="col" [class.active]="sortingValue === 'phoneNumber'" (click)="onOrder('phoneNumber')" class=" listing__table-th mdl-data-table__cell--non-numeric">{{ 'APP.Phone' | translate }}
+                            <span [hidden]="reverse"><i class="fas fa-arrow-down"></i></span>
+                        </th>
+                        <th scope="col" [class.active]="sortingValue === 'status'" (click)="onOrder('status')" class=" listing__table-th mdl-data-table__cell--non-numeric">{{ 'APP.Status' | translate }}
+                            <span [hidden]="reverse"><i class="fas fa-arrow-down"></i></span>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users |  paginate: { itemsPerPage: 3, currentPage: p } | filter:searchText | orderBy: sortingValue:reverse:'case-insensitive'">
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNumber}}</td>
+                        <td>{{user.status}}</td>
+                        <td>
+                            <a [routerLink]="['/users','edit',user.id]">
+                                <button class="btn btn-sm btn-primary">{{ 'APP.Edit' | translate }}</button>
+                            </a>
+                            <a>
+                                <button class="btn btn-sm btn-primary" (click)="onDelete(user.id)">{{ 'APP.Delete' | translate }}</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 pagination-block ">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+        </div>
+    </div>
+</div>

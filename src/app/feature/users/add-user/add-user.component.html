@@ -1,0 +1,67 @@
+<!-- add form -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6 Form add-form">
+            <form [formGroup]="addForm" (ngSubmit)="onAdd()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="Form__lable">{{ 'APP.Name' | translate }}</label>
+                    <input type="text" class="form-control Form__form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="{{ 'APP.Enter name' | translate }}" formControlName="name">
+                </div>
+                <div *ngIf="addForm.get('name').invalid && (addForm.get('name').pristine || addForm.get('name').touched)" class="alert alert-danger">
+
+                    <div *ngIf="addForm.get('name').errors['required']">
+                        {{ 'APP.Name is required.' | translate }}
+                    </div>
+                    <div *ngIf="addForm.get('name').errors['minlength']">
+                        {{ 'APP.Name must be at least 3 characters long.' | translate }}
+                    </div>
+                    <div *ngIf="addForm.get('name').errors['maxlength']">
+                        {{ 'APP.Name must be at most 10 characters long.' | translate }}
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="Form__lable">{{ 'APP.Email' | translate }}</label>
+                    <input type="email" class="form-control Form__form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{ 'APP.Enter email' | translate }}" formControlName="email">
+                </div>
+                <div *ngIf="addForm.get('email').invalid && (addForm.get('email').pristine || addForm.get('email').touched)" class="alert alert-danger">
+
+                    <div *ngIf="addForm.get('email').errors['required']">
+
+                        {{ 'APP.Email is required.' | translate }}
+                    </div>
+                    <div *ngIf="addForm.get('email').errors['email']">
+                        {{ 'APP.Email Invalid.' | translate }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="Form__lable">{{ 'APP.Phone' | translate }}</label>
+                    <input type="number" class="form-control Form__form-control" id="exampleInputPhone" aria-describedby="emailHelp" placeholder="{{ 'APP.Enter phone number' | translate }}" formControlName="phoneNumber">
+                </div>
+                <div *ngIf="addForm.get('phoneNumber').invalid && (addForm.get('phoneNumber').pristine || addForm.get('phoneNumber').touched)" class="alert alert-danger">
+
+                    <div *ngIf="addForm.get('phoneNumber').errors['required']">
+                        {{ 'APP.Phone Number is required.' | translate }}
+                    </div>
+
+                </div>
+                <div>
+                    <label for="exampleInputEmail1" class="Form__lable">{{ 'APP.Status' | translate }}</label>
+                </div>
+                <div class="form-group add-form__radios">
+                    <div class="form-group add-form__radio"><input type="radio" formControlName="status" value="active"><span>{{ 'APP.active' | translate }}</span></div>
+                    <div class="form-group add-form__radio"><input type="radio" formControlName="status" value="soft_deleted"><span>{{ 'APP.soft_deleted' | translate }}</span></div>
+                </div>
+                <div *ngIf="addForm.get('status').invalid && (addForm.get('status').pristine || addForm.get('status').touched)" class="alert alert-danger">
+                    <!-- <div *ngIf="isSubmitted && addForm.errors['required']"> -->
+                    <p>{{ 'APP.Please select either value.' | translate }}</p>
+                </div>
+                <button type="submit" class="btn button button--primary btn-primary" #btnSubmit>{{ 'APP.Add' | translate }}</button>
+            </form>
+        </div>
+    </div>
+</div>
