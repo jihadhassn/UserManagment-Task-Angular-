@@ -22,7 +22,7 @@
         "@fortawesome/fontawesome-free": "^5.9.0",
         "@ngx-translate/core": "^11.0.1",
         "@ngx-translate/http-loader": "^4.0.0",
-        "bootstrap": "4.1.1",
+        "bootstrap": "4.3.1",
         "ng2-search-filter": "^0.5.1",
         "ngx-bootstrap": "^5.1.0",
         "ngx-order-pipe": "^2.0.3",
